@@ -26,7 +26,7 @@
 #include "dht22.h"
 #include "stm32f1xx_hal.h"
 
-
+/* DHT22 pulse properties */ 
 #define HIGH_MIN 110
 #define HIGH_MAX 140
 #define LOW_MIN  70

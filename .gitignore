@@ -1,2 +1,4 @@
-External
-.external.sh
+/External/
+/.external.sh
+/Debug/
+/.settings/
