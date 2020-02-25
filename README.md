@@ -4,8 +4,8 @@ TBD.
 
 ## Compilation Tools 
 
-- Atollic 9.3
-- CubeMX
+- Atollic TrueSTUDIO 9.3
+- STM32CubeMX
 
 ## External Code Sources
 
