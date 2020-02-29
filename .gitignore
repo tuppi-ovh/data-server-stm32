@@ -1,4 +1,12 @@
-/External/
-/.external.sh
+/Drivers/
+/Inc/main.h
+/Inc/stm32f1xx_hal_conf.h
+/Inc/stm32f1xx_it.h
+/Src/main.c
+/Src/stm32f1xx_hal_msp.c
+/Src/stm32f1xx_it.c
+/Src/system_stm32f1xx.c
 /Debug/
+/TrueSTUDIO/
 /.settings/
+/.external.sh

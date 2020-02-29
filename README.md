@@ -1,7 +1,9 @@
-## Introduction
+# Introduction
 
 TBD
 
+
+# Compilation
 
 ## Compilation Tools 
 
@@ -11,21 +13,27 @@ TBD
 
 ## External Code Sources
 
-To compile the whole project you need to download some extra modules: 
+To compile the whole project you need to generate the TrueSTUDIO project from STM32CubeMX.
 
-**External/Drivers/CMSIS:** 
-- You can use the CubeMX to configure these files for the Atollic project.
+After that you can find some new modules inside your project folder.
 
-**External/Drivers/STM32F1xx_HAL_Driver:** 
-- You can use the CubeMX to configure these files for the Atollic project.
+**Drivers/CMSIS** 
 
-**External/Startup/startup_stm32f100xb.s:**
-- You can use the CubeMX to configure these files for the Atollic project.
+**Drivers/STM32F1xx_HAL_Driver** 
 
-**External/Main:**
-- You can use the CubeMX to configure these files for the Atollic project.
-- You need to insert this code into ̀`main()` function:
+**TrueSTUDIO/startup_stm32f100xb.s:**
+- You need to add this line ` ldr sp, =_estack ` before this section:
+
+```
+  movs r1, #0
+  b LoopCopyDataInit
+```
+
+**Src/main.c:**
+- You need to insert this code into `main()` function:
 ```c
+  extern void SERV_Init(UART_HandleTypeDef * huart, TIM_HandleTypeDef * htim);
+  extern void SERV_Routine(void);
   SERV_Init(&huart1, &htim2);
   while (1)
   {
@@ -37,10 +45,36 @@ To compile the whole project you need to download some extra modules:
 - You can use the CubeMX to configure these files for the Atollic project.
 
 
+
+# LACROSSE TX141TH-BV2 Sensor
+
+## Packet Example
+
+``` 
+1010 1010 0000 0010 1101 1011 0010 0100 1010 0000
+----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
+   170              731          36
+
+1010 1010 0000 0010 0101 0001 0000 0001 0010 101X
+----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
+
+1010 1010 0000 0010 1111 1011 0001 1001 0010 101
+----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
+                  763(26,3°C)    25
+
+				  
+1010 1010 0000 0010 1111 0001 0001 1110 0101 1010
+----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
+                  753(25,3°C)    30
+``` 
+
+## Checksum Calculation
+
+Refer to http://tuppi.ovh/doc_lacrosse. 
+
 # License 
 
 Refer to the LICENSE file.
-
 
 # Links 
 
