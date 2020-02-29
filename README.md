@@ -1,6 +1,6 @@
 # Introduction
 
-TBD
+Data Server STM32 is a low level application for the Smart Home data acquisition.
 
 
 # Compilation
@@ -15,11 +15,9 @@ TBD
 
 To compile the whole project you need to generate the TrueSTUDIO project from STM32CubeMX.
 
-After that you can find some new modules inside your project folder.
+After that you can find some new modules inside your project folder: Drivers, TrueSTUDIO. 
 
-**Drivers/CMSIS** 
-
-**Drivers/STM32F1xx_HAL_Driver** 
+You need to add some code in generated files.
 
 **TrueSTUDIO/startup_stm32f100xb.s:**
 - You need to add this line ` ldr sp, =_estack ` before this section:
@@ -40,10 +38,6 @@ After that you can find some new modules inside your project folder.
     SERV_Routine();
   }
 ``` 
-
-**External/stm32f1xx/system_stm32f1xx.c:**
-- You can use the CubeMX to configure these files for the Atollic project.
-
 
 
 # LACROSSE TX141TH-BV2 Sensor
@@ -79,4 +73,7 @@ Refer to the LICENSE file.
 # Links 
 
 - [DHT22 with STM32](https://www.controllerstech.com/temperature-measurement-using-dht22-in-stm32)
+
 - [MySensors API UART](https://www.mysensors.org/download/serial_api_20)
+
+- [LaCrosse Checksum](http://tuppi.ovh/doc_lacrosse)
