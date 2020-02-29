@@ -3,6 +3,11 @@
 Data Server STM32 is a low level application for the Smart Home data acquisition.
 
 
+# Hardware
+
+Refer to http://tuppi.ovh/doc_data_server.html.
+
+
 # Compilation
 
 ## Compilation Tools 
@@ -77,3 +82,5 @@ Refer to the LICENSE file.
 - [MySensors API UART](https://www.mysensors.org/download/serial_api_20)
 
 - [LaCrosse Checksum](http://tuppi.ovh/doc_lacrosse)
+
+- [Hardware Configuration](http://tuppi.ovh/doc_data_server.html)
