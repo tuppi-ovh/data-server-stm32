@@ -1,6 +1,6 @@
 ## Introduction
 
-TBD.
+TBD
 
 ## Compilation Tools 
 
@@ -22,7 +22,7 @@ To compile the whole project you need to download some extra modules:
 
 **External/Main/main.c:**
 - You can use the CubeMX to configure these files for the Atollic project.
-- You need to insert this code into ̀ main()` function:
+- You need to insert this code into ̀`main()` function:
 ```c
   SERV_Init(&huart1, &htim2);
   while (1)

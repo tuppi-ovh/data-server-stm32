@@ -207,7 +207,7 @@ static int32_t checksum_verify(uint32_t payload, uint32_t chk)
  * 
  * @param duration_usec pulse duration un microsec.
  * 
- * @return 32-bit payload if ok otherwise 0xFFFFFFFF.
+ * @return 32-bit payload if ok, otherwise 0xFFFFFFFF.
  */
 uint32_t LACROSSE_input_handler(uint32_t duration_usec)
 {
