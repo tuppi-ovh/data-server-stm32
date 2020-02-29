@@ -2,10 +2,12 @@
 
 TBD
 
+
 ## Compilation Tools 
 
 - Atollic TrueSTUDIO 9.3
 - STM32CubeMX
+
 
 ## External Code Sources
 
@@ -20,7 +22,7 @@ To compile the whole project you need to download some extra modules:
 **External/Startup/startup_stm32f100xb.s:**
 - You can use the CubeMX to configure these files for the Atollic project.
 
-**External/Main/main.c:**
+**External/Main:**
 - You can use the CubeMX to configure these files for the Atollic project.
 - You need to insert this code into ̀`main()` function:
 ```c
@@ -31,9 +33,14 @@ To compile the whole project you need to download some extra modules:
   }
 ``` 
 
+**External/stm32f1xx/system_stm32f1xx.c:**
+- You can use the CubeMX to configure these files for the Atollic project.
+
+
 # License 
 
 Refer to the LICENSE file.
+
 
 # Links 
 
