@@ -47,29 +47,8 @@ You need to add some code in generated files.
 
 # LACROSSE TX141TH-BV2 Sensor
 
-## Packet Example
-
-``` 
-1010 1010 0000 0010 1101 1011 0010 0100 1010 0000
-----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
-   170              731          36
-
-1010 1010 0000 0010 0101 0001 0000 0001 0010 101X
-----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
-
-1010 1010 0000 0010 1111 1011 0001 1001 0010 101
-----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
-                  763(26,3°C)    25
-
-				  
-1010 1010 0000 0010 1111 0001 0001 1110 0101 1010
-----ID--- AUTO ----TEMPER---- ---HUM--- --CHKSM--
-                  753(25,3°C)    30
-``` 
-
-## Checksum Calculation
-
 Refer to http://tuppi.ovh/doc_lacrosse. 
+
 
 # License 
 
@@ -81,6 +60,6 @@ Refer to the LICENSE file.
 
 - [MySensors API UART](https://www.mysensors.org/download/serial_api_20)
 
-- [LaCrosse Checksum](http://tuppi.ovh/doc_lacrosse)
+- [LaCrosse Sensor](http://tuppi.ovh/doc_lacrosse)
 
 - [Hardware Configuration](http://tuppi.ovh/doc_data_server.html)
