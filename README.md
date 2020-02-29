@@ -9,7 +9,7 @@ TBD.
 
 ## External Code Sources
 
-To compile the whole project you need to download some modules: 
+To compile the whole project you need to download some extra modules: 
 
 **External/Drivers/CMSIS:** 
 - You can use the CubeMX to configure these files for the Atollic project.
