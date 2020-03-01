@@ -30,28 +30,15 @@
 #include "dht22.h"
 #include "lacrosse.h"
 
+/* Data server version */
+#define SERVER_VERSION  4
 
-/**
- * Enumeration for switch functions.
- */ 
-typedef enum {
-  SWITCH_OFF = 0,
-  SWITCH_ON = 1
-} SWITCH_e;
+/* period to execute routines */
+#define DHT22_SYSTICK_PERIOD (60 * 1000)  /* 60 sec */
+#define VERSION_SYSTICK_PERIOD (70 * 1000)  /* 70 sec */
 
-
-
-#define HUART_BUFFER_LEN   50
-
-
-#define PULSE_OLD_SIZE 128
-#define PULSE_CIRCULAR_MASK 0x2FF
-
-
-#define DHT22_SYSTICK_PERIOD (60 * 1000)  /* period of 60 sec */
+/* Masks to define the size of the circular buffers */ 
 #define DHT22_PULSE_MASK     63
-
-
 #define RADIO_PULSE_MASK     511
 
 /*
@@ -63,6 +50,13 @@ typedef enum {
 #define GPIO_PIN_TIMER   (GPIO_PIN_15)
 
 
+/**
+ * Enumeration for switch functions.
+ */ 
+typedef enum {
+  SWITCH_OFF = 0,
+  SWITCH_ON = 1
+} SWITCH_e;
 
 
 /* pointers */
@@ -80,6 +74,9 @@ static uint32_t radio_duration_buffer_write;
 static uint32_t radio_duration_buffer_read;
 static uint32_t radio_compare_old;
 
+/* systick */
+static uint64_t systick;
+
 
 /**
  * Switches on / off the user LED.
@@ -94,19 +91,19 @@ static void led_switch(SWITCH_e sw)
 }
 
 /**
- * DH22 sensor handler.
+ * DHT22 sensor routine.
  */
 static void dht22_routine(void)
 {
-  static uint32_t dht22_systick_last = 0;
+  static uint64_t systick_last = 0;
   static uint32_t temper_last = 0;
   static uint32_t rh_last = 0;
 
   /* current systick */
-  const uint32_t systick = HAL_GetTick();
+  const uint64_t systick_now = systick;
 
   /* DHT22 read sensor */
-  if ((systick - dht22_systick_last) >= DHT22_SYSTICK_PERIOD)
+  if ((systick_now - systick_last) >= DHT22_SYSTICK_PERIOD)
   {
     uint32_t temper;
     uint32_t rh;
@@ -144,7 +141,7 @@ static void dht22_routine(void)
     DHT22_StartSensor();
 
     /* remember systick */
-    dht22_systick_last = systick;
+    systick_last = systick_now;
   }
 }
 
@@ -256,17 +253,57 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)
 }
 
 /**
+ * Version show routine.
+ */
+static void version_routine(void)
+{
+  /* systick */
+  static uint64_t systick_last = VERSION_SYSTICK_PERIOD;
+  const uint64_t systick_now = systick;
+
+  /* version show */
+  if ((systick_now - systick_last) >= VERSION_SYSTICK_PERIOD)
+  {
+    int32_t i;
+
+    /* show the version */
+    for (i = 0; i < SERVER_VERSION; i++)
+    {
+      volatile int32_t k;
+      led_switch(SWITCH_ON);
+      for (k = 0; k < 200000; k++);
+      led_switch(SWITCH_OFF);
+      for (k = 0; k < 200000; k++);
+    }
+
+    /* remember systick */
+    systick_last = systick_now;
+  }
+}
+
+/**
  * Routine called all time in while(1).
  * 
  * @return void.
  */
 void SERV_Routine(void)
 {
+  /* version show routine */
+  version_routine();
+
   /* DHT22 routine */
   dht22_routine();
 
   /* 433 MHz routine */
   lacrosse_routine();
+}
+
+/**
+ * Increments the systick counter.
+ */  
+void SERV_TickIncrement(void)
+{
+  systick++;
 }
 
 /**
@@ -308,6 +345,9 @@ void SERV_Init(UART_HandleTypeDef * huart, TIM_HandleTypeDef * htim)
   radio_duration_buffer_read = 0;
   radio_compare_old = 0;
   memset(radio_duration_buffer, 0, sizeof(radio_duration_buffer));
+
+  /* init systick */
+  systick = 0;
 }
 
 

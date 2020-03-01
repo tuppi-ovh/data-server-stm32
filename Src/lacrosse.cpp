@@ -59,7 +59,7 @@
  * 
  * @details For more information refer to http://tuppi.ovh/doc_lacrosse.
  */
-static uint8_t crc_table[] = {
+static const uint8_t crc_table[] = {
                          0x00, 0x31, 0x62, 0x53, 0xC4, 0xF5, 0xA6, 0x97,
                          0xB9, 0x88, 0xDB, 0xEA, 0x7D, 0x4C, 0x1F, 0x2E,
                          0x43, 0x72, 0x21, 0x10, 0x87, 0xB6, 0xE5, 0xD4,
@@ -99,7 +99,7 @@ static uint8_t crc_table[] = {
  * 
  * @details For more information refer to http://tuppi.ovh/doc_lacrosse.
  */ 
-static uint8_t crc_redir_table[] = {
+static const uint8_t crc_redir_table[] = {
                         0 	, 49	, 98	, 83	, 196	, 245	, 166	, 151	, 185	, 136	,
                         219	, 234	, 125	, 76	, 31	, 46	, 67	, 114	, 33	, 16	,
                         135	, 182	, 229	, 212	, 250	, 203	, 152	, 169	, 62	, 15	, 
@@ -135,7 +135,7 @@ static uint8_t crc_redir_table[] = {
  * 
  * @details used CRC8 DVB_S2 algorithm from http://www.sunshine2k.de/coding/javascript/crc/crc_js.html.
  */
-static uint8_t encrypt_table[] = {
+static const uint8_t encrypt_table[] = {
     0x00, 0xF7, 0xB9, 0x4E, 0x25, 0xD2, 0x9C, 0x6B, 0x4A, 0xBD, 0xF3, 0x04, 0x6F, 0x98, 0xD6, 0x21,
     0x94, 0x63, 0x2D, 0xDA, 0xB1, 0x46, 0x08, 0xFF, 0xDE, 0x29, 0x67, 0x90, 0xFB, 0x0C, 0x42, 0xB5,
     0x7F, 0x88, 0xC6, 0x31, 0x5A, 0xAD, 0xE3, 0x14, 0x35, 0xC2, 0x8C, 0x7B, 0x10, 0xE7, 0xA9, 0x5E,
@@ -199,7 +199,8 @@ static uint32_t checksum_calculate(uint32_t payload)
  */
 static int32_t checksum_verify(uint32_t payload, uint32_t chk)
 {
-  return (chk == checksum_calculate(payload)) ? 0 : -1;
+  const uint32_t chk_calc = checksum_calculate(payload);
+  return (chk == chk_calc) ? 0 : -1;
 }
 
 /**

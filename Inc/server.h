@@ -29,5 +29,6 @@
 
 void SERV_Init(UART_HandleTypeDef * huart, TIM_HandleTypeDef * htim);
 void SERV_Routine(void);
+void SERV_TickIncrement(void);
 
 #endif

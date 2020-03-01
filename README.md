@@ -44,6 +44,16 @@ You need to add some code in generated files.
   }
 ``` 
 
+**Src/tiny_printf.c:**
+- Rightclick on the project -> New -> Other -> Library functions. And and add "Tiny printf implementation".
+
+**Src/stm32f1xx_it.c:**
+- You need to insert this code into `SysTick_Handler()` function:
+```c
+  extern void SERV_TickIncrement(void);
+  SERV_TickIncrement();
+```
+
 
 # LACROSSE TX141TH-BV2 Sensor
 

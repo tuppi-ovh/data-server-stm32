@@ -124,8 +124,9 @@ static void send_temper_hum(int32_t node, int32_t child, int32_t type, int32_t d
   };
 
   /* payload */
-  const int32_t size = sprintf(sens.payload, "%d.%d",
-      (int)(data_x10 / 10), (int)(data_x10 % 10));
+  const int32_t val_left = data_x10 / 10;
+  const int32_t val_right = data_x10 % 10;
+  const int32_t size = sprintf((char *)mysens_payload_buf, "%d.%d", (int)val_left, (int)val_right);
 
   /* send */
   if (size > 0)
@@ -219,7 +220,7 @@ void MYSENSORS_DebugSend(int32_t debug)
   };
 
   /* payload */
-  const int32_t size = sprintf(sens.payload, "%d", (int)debug);
+  const int32_t size = sprintf((char *)mysens_payload_buf, "%d", (int)debug);
 
   /* send */
   if (size > 0)
