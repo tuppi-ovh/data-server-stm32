@@ -64,12 +64,3 @@ Refer to http://tuppi.ovh/doc_lacrosse.
 
 Refer to the LICENSE file.
 
-# Links 
-
-- [DHT22 with STM32](https://www.controllerstech.com/temperature-measurement-using-dht22-in-stm32)
-
-- [MySensors API UART](https://www.mysensors.org/download/serial_api_20)
-
-- [LaCrosse Sensor](http://tuppi.ovh/doc_lacrosse)
-
-- [Hardware Configuration](http://tuppi.ovh/doc_data_server.html)
