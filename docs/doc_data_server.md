@@ -149,7 +149,7 @@ The code source can be found here: [https://github.com/tuppi-ovh/data-server-stm
 
 # Connection Board
 
-<img src="http://tuppi.ovh/images/img_doc_data_server_design.png">
+<img src="../images/img_doc_data_server_design.png">
 
 # Conclusion
 
@@ -157,11 +157,11 @@ The board has been working good since several months. All components can be repl
 
 I put everything in two identical plastic boxes:
 
-<img src="http://tuppi.ovh/images/img_doc_data_server_result_1.jpg">
+<img src="../images/img_doc_data_server_result_1.jpg">
 
 At the end these plastic boxes were relied together:
 
-<img src="http://tuppi.ovh/images/img_doc_data_server_result_2.jpg">
+<img src="../images/img_doc_data_server_result_2.jpg">
 
 # Source Code 
 

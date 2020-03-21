@@ -263,7 +263,7 @@ static int32_t radio_checksum_verify(uint32_t payload, uint32_t chk)
 Now the sensor works good. There is no unexpected peaks any more. You can see 
 an example of such measurements during one day here:
 
-<img src="images/img_doc_example_temperature.png" alt="drawing" width="400"/>
+<img src="../images/img_doc_example_temperature.png" alt="drawing" width="400"/>
 
 
 # Some Interesting Links
