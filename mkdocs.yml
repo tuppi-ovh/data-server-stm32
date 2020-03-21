@@ -1,0 +1,9 @@
+site_name: TUPPI.OVH.DATASERVER
+
+markdown_extensions:
+- plantuml_markdown:
+    server: http://www.plantuml.com/plantuml
+
+nav:
+  - LaCrosse TX141TH-BV2 Sensor: 'doc_lacrosse.md'
+  - Simple Data Server for Sensors: 'doc_data_server.md'
