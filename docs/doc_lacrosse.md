@@ -1,15 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-# Site Map
-
-[Home Page](http://tuppi.ovh)  
-
-[How to integrate LaCrosse TX141TH-BV2 sensor](http://tuppi.ovh/doc_lacrosse.html)  
-
-[How to build a simple data server for temperature sensors](doc_data_server.html) 
-
-[Example of Smart Home statistics](http://tuppi.ovh/smart_stats.html)  
-
 # Introduction
 
 I have at home a Lacrosse meteo station with its TX141TH-BV2 sensor. 
@@ -296,5 +284,4 @@ an example of such measurements during one day here:
 If you have any suggestions about the content of this page, 
 you can contact me on this e-mail: 
 
-<img src="images/img_doc_contact.png" alt="drawing" width="200"/>
-
+<img src="../images/img_doc_contact.png" alt="drawing" width="200"/>

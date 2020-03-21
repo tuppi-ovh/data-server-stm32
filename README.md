@@ -5,7 +5,7 @@ Data Server STM32 is a low level application for the Smart Home data acquisition
 
 # Hardware
 
-Refer to http://tuppi.ovh/doc_data_server.html.
+Refer to http://tuppi.ovh/doc_data_server.
 
 
 # Compilation
@@ -62,5 +62,5 @@ Refer to http://tuppi.ovh/doc_lacrosse.
 
 # License 
 
-Refer to the LICENSE file.
+Refer to the [LICENSE](LICENSE) file.
 

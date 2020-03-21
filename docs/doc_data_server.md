@@ -1,15 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-# Site Map
-
-[Home Page](http://tuppi.ovh)  
-
-[How to integrate LaCrosse TX141TH-BV2 sensor](http://tuppi.ovh/doc_lacrosse.html)  
-
-[How to build a simple data server for temperature sensors](doc_data_server.html) 
-
-[Example of Smart Home statistics](http://tuppi.ovh/smart_stats.html)  
-
 # Introduction
 
 The Data Server project was created to make some statisctics on internal temperature sensor (DHT22) and external temperature sensor (LaCrosse). The data from these sensors is sent to a Raspberry PI. The last one integrated a Python application which logs received data to a database. This application can also receive external commands by Telegram, for example, to update the site from the database data.
@@ -190,4 +178,4 @@ Source code of this project: [https://github.com/tuppi-ovh/data-server-stm32](ht
 If you have any suggestions about the content of this page, 
 you can contact me on this e-mail: 
 
-<img src="images/img_doc_contact.png" alt="drawing" width="200"/>
+<img src="../images/img_doc_contact.png" alt="drawing" width="200"/>
