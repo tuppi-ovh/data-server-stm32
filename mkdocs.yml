@@ -1,0 +1,9 @@
+site_name: data_server_stm32
+
+markdown_extensions:
+- plantuml_markdown:
+    server: http://www.plantuml.com/plantuml
+
+nav:
+  - How to calculate LaCrosse TX141TH-BV2 checksum: 'doc_lacrosse.md'
+  - How to build a simple server for sensors data: 'doc_data_server.md'
