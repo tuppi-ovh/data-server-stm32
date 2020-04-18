@@ -57,7 +57,7 @@ You need to add some code in generated files.
 
 # LACROSSE TX141TH-BV2 Sensor
 
-Refer to http://tuppi.ovh/data_server_stm32/doc_lacrosse. 
+Refer to https://tuppi.ovh/data_server_stm32/doc_lacrosse. 
 
 
 # License 
