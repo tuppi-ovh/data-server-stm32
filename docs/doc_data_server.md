@@ -11,12 +11,12 @@ rectangle "BOX" as M_BOX {
 
     rectangle "Raspberry PI Zero" as M_RASP 
     note right
-    <img:https://tuppi.ovh/images/img_doc_data_server_raspberry.png{scale=0.5}>
+    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_raspberry.png{scale=0.5}>
     end note
 
     rectangle "433 MHz Receiver" as M_433MHz
     note right
-    <img:https://tuppi.ovh/images/img_doc_data_server_rxb6.png{scale=0.5}>
+    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_rxb6.png{scale=0.5}>
     end note
 
     rectangle "Connection Board" as M_CONN {
@@ -26,7 +26,7 @@ rectangle "BOX" as M_BOX {
 
     rectangle "STM32F100 Board" as M_STM32
     note right
-    <img:https://tuppi.ovh/images/img_doc_data_server_stm32.png{scale=0.5}>
+    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_stm32.png{scale=0.5}>
     end note 
 
     rectangle "LED" as M_LED
@@ -35,7 +35,7 @@ rectangle "BOX" as M_BOX {
 
 rectangle "DHT22 Sensor" as M_DHT22
 note right
-<img:https://tuppi.ovh/images/img_doc_data_server_dht22.png{scale=0.5}>
+<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_dht22.png{scale=0.5}>
 end note
 
 rectangle "ST-Link Debug" as M_DEBUG
