@@ -57,7 +57,7 @@
 /**
  * CRC8 table with polynomial 0x31 and init value 0x00. 
  * 
- * @details For more information refer to http://tuppi.ovh/doc_lacrosse.
+ * @details For more information refer to https://tuppi.ovh/doc_lacrosse.
  */
 static const uint8_t crc_table[] = {
                          0x00, 0x31, 0x62, 0x53, 0xC4, 0xF5, 0xA6, 0x97,
@@ -97,7 +97,7 @@ static const uint8_t crc_table[] = {
 /**
  * Redirection table found from statistic data.
  * 
- * @details For more information refer to http://tuppi.ovh/doc_lacrosse.
+ * @details For more information refer to https://tuppi.ovh/doc_lacrosse.
  */ 
 static const uint8_t crc_redir_table[] = {
                         0 	, 49	, 98	, 83	, 196	, 245	, 166	, 151	, 185	, 136	,
@@ -190,7 +190,7 @@ static uint32_t checksum_calculate(uint32_t payload)
 /**
  * Checksum verification regarding the Lacrosse algorithm.
  * 
- * @details For more information refer to http://tuppi.ovh/doc_lacrosse.
+ * @details For more information refer to https://tuppi.ovh/doc_lacrosse.
  * 
  * @param payload received payload.
  * @param chk received checksum.
