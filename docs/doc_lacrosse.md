@@ -1,3 +1,5 @@
+*Last update on 24/04/2020*
+
 # Introduction
 
 I have at home a Lacrosse meteo station with its TX141TH-BV2 sensor. 
@@ -279,9 +281,3 @@ an example of such measurements during one day here:
 - Application for checksum reverse engineering: [http://reveng.sourceforge.net](http://reveng.sourceforge.net)
 
 
-# Contact
-
-If you have any suggestions about the content of this page, 
-you can contact me on this e-mail: 
-
-<img src="../images/img_doc_contact.png" alt="drawing" width="200"/>
