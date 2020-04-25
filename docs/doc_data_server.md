@@ -1,11 +1,13 @@
-*Last update on 24/04/2020*
+*Last update on 25/04/2020*
 
-# Introduction
+# Data Server on STM32
+
+## Introduction
 
 The Data Server project is created to make some statisctics on internal temperature sensor (DHT22) and external temperature sensor (LaCrosse). The data from these sensors is sent to a Raspberry PI. The last one integrates a Python application which logs received data to a database. This application can also receive external commands by Telegram, for example, to update the site from the database data.
 
 
-# Modules
+## Modules
 
 ```plantuml
 @startuml
@@ -153,7 +155,7 @@ The code source can be found here: [https://github.com/tuppi-ovh/data-server-stm
 
 <img src="../images/img_doc_data_server_design.png">
 
-# Source Code 
+## Source Code 
 
 Source code of this project: 
 
@@ -161,7 +163,7 @@ Source code of this project:
 
 - [https://github.com/tuppi-ovh/data-server-pi](https://github.com/tuppi-ovh/data-server-pi)
 
-# Conclusion
+## Conclusion
 
 The board has been working good since several months. All components can be replaced by more common ones: CH340C by FTDI, STM32F100 by another STM32 board.
 
@@ -173,7 +175,7 @@ At the end these plastic boxes were relied together:
 
 <img src="../images/img_doc_data_server_result_2.jpg">
 
-# Interesting Links
+## Interesting Links
 
 - [DHT22 with STM32](https://www.controllerstech.com/temperature-measurement-using-dht22-in-stm32)
 

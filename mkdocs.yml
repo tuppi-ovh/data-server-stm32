@@ -5,5 +5,5 @@ markdown_extensions:
     server: http://www.plantuml.com/plantuml
 
 nav:
-  - Make Data Server - Part 2: 'doc_data_server.md'
-  - Calculate LaCrosse TX141TH Checksum: 'doc_lacrosse.md'
+  - Data Server on STM32: 'doc_data_server.md'
+  - LaCrosse TX141TH Checksum: 'doc_lacrosse.md'

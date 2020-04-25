@@ -1,13 +1,15 @@
-*Last update on 24/04/2020*
+*Last update on 25/04/2020*
 
-# Introduction
+# LaCrosse TX141TH Checksum 
+
+## Introduction
 
 I have at home a Lacrosse meteo station with its TX141TH-BV2 sensor. 
 During building my proper smart home installation, I was wondering if
 I could integrate this sensor to my Raspberry PI server. The sensor
 communicates on 433 MHz radio frequency with the meteo station. 
 
-# Packet Description
+## Packet Description
 
 In the internet I found a lot of information about the packet description. 
 Each packet contains 12 identical words of 40 bits. Each 40-bit word contains:
@@ -39,7 +41,7 @@ Some examples of such words can be found here:
                   753(25,3°C)    30
 ```
 
-# Checksum Calculation
+## Checksum Calculation
 
 During my first implementations I couldn't find how the checksum was calculated.
 So, I started with no verification at all. And from time to time I saw some peaks 
@@ -260,7 +262,7 @@ static int32_t radio_checksum_verify(uint32_t payload, uint32_t chk)
 }
 ```
 
-# Conclusion
+## Conclusion
 
 Now the sensor works good. There is no unexpected peaks any more. You can see 
 an example of such measurements during one day here:
@@ -268,7 +270,7 @@ an example of such measurements during one day here:
 <img src="../images/img_doc_example_temperature.png" alt="drawing" width="400"/>
 
 
-# Some Interesting Links
+## Some Interesting Links
 
 - Source code of this project: [https://github.com/tuppi-ovh/data-server-stm32](https://github.com/tuppi-ovh/data-server-stm32)
 
