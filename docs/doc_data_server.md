@@ -1,4 +1,4 @@
-*Last update on 25/04/2020*
+*Last update on 16/05/2020*
 
 # Data Server on STM32
 
@@ -13,37 +13,28 @@ The Data Server project is created to make some statisctics on internal temperat
 @startuml
 rectangle "BOX" as M_BOX {
 
-    rectangle "Raspberry PI Zero" as M_RASP 
-    note right
-    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_raspberry.png{scale=0.5}>
-    end note
+    rectangle "Raspberry PI Zero\n<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_raspberry.png{scale=0.5}>" as M_RASP 
 
-    rectangle "433 MHz Receiver" as M_433MHz
-    note right
-    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_rxb6.png{scale=0.5}>
-    end note
+    rectangle "433 MHz Receiver\n<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_rxb6.png{scale=0.5}>" as M_433MHz
 
     rectangle "Connection Board" as M_CONN {
         rectangle "UART by CH340C" as M_UART 
         rectangle "3V3" as M_3V3
     }
 
-    rectangle "STM32F100 Board" as M_STM32
-    note right
-    <img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_stm32.png{scale=0.5}>
-    end note 
+    rectangle "STM32F100 Board\n<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_stm32.png{scale=0.5}>" as M_STM32
 
     rectangle "LED" as M_LED
+
     rectangle "DB9 Connector" as M_DB9
 }
 
-rectangle "DHT22 Sensor" as M_DHT22
-note right
-<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_dht22.png{scale=0.5}>
-end note
+rectangle "DHT22 Sensor\n<img:https://tuppi.ovh/data_server_stm32/images/img_doc_data_server_dht22.png{scale=0.5}>" as M_DHT22
 
 rectangle "ST-Link Debug" as M_DEBUG
+
 rectangle "ISP or Flash Boot" as M_BOOT
+
 rectangle "5V" as M_USB
 
 M_USB --> M_RASP
