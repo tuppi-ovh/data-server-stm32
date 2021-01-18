@@ -301,7 +301,10 @@ uint32_t LACROSSE_input_handler(uint32_t duration_usec)
 /**
  * Export C of the @ref LACROSSE_input_handler() function.
  */
-extern "C" uint32_t LACROSSE_input_handler_c(uint32_t duration_usec)
+#ifndef S_SPLINT_S
+extern "C" 
+#endif
+uint32_t LACROSSE_input_handler_c(uint32_t duration_usec)
 {
   return LACROSSE_input_handler(duration_usec);
 }
