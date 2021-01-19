@@ -13,3 +13,5 @@
 /.external.sh
 /Splint/html/
 /Splint/splint.csv
+/Cppcheck/html/
+/Cppcheck/cppcheck.xml

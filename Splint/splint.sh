@@ -1,6 +1,9 @@
 #!/bin/bash
 
-SPLINT_INCLUDES="-IInc/ -ISplint"
+# parameters 
+SPLINT_COMMAND="../splint/src/splint"
+SPLINT_HTML_COMMAND="python3 ../splint-htmlreport/splint-htmlreport.py"
+SPLINT_INCLUDES="-IInc/ -ISplint/"
 SPLINT_DEFINES="-DSTM32F100xB"
 SPLINT_CSV="Splint/splint.csv"
 SPLINT_SOURCES="Src/*.c Src/*.cpp"
@@ -14,10 +17,10 @@ then
 fi
 mkdir $SPLINT_HTML
 
-# execute splint 
+# execute 
 set +e
-../splint/src/splint $SPLINT_INCLUDES $SPLINT_DEFINES $SPLINT_OPTIONS $SPLINT_SOURCES
+$SPLINT_COMMAND $SPLINT_INCLUDES $SPLINT_DEFINES $SPLINT_OPTIONS $SPLINT_SOURCES
 set -e
 
 # format output
-python3 ../splint-htmlreport/splint-htmlreport.py --file $SPLINT_CSV --title "Data Server STM32" --report-dir $SPLINT_HTML --source-dir .
+$SPLINT_HTML_COMMAND --file $SPLINT_CSV --title "Data Server STM32" --report-dir $SPLINT_HTML --source-dir .
