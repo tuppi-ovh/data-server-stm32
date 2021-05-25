@@ -1,13 +1,18 @@
-*Last update on 16/05/2020*
+*Last update on 25/05/2021*
 
 # Data Server on STM32
+
+--------------------------------------
 
 ## Introduction
 
 The Data Server project is created to make some statisctics on internal temperature sensor (DHT22) and external temperature sensor (LaCrosse). The data from these sensors is sent to a Raspberry PI. The last one integrates a Python application which logs received data to a database. This application can also receive external commands by Telegram, for example, to update the site from the database data.
 
+--------------------------------------
 
-## Modules
+## Hardware
+
+### Modules
 
 ```plantuml
 @startuml
@@ -77,7 +82,7 @@ rectangle "Connection Board" as M_CONN {
 
 Pin  &nbsp; &nbsp; &nbsp; | Name  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Wire Color
 ------|------|------
-1 | 3V3 | Yellow / Ree
+1 | 3V3 (output) | Yellow / Red
 2 | SWCLK | Yellow / Violet
 3 | SWDIO | Violet 
 4 | DHT_DATA | Grey
@@ -146,13 +151,61 @@ The code source can be found here: [https://github.com/tuppi-ovh/data-server-stm
 
 <img src="../images/img_doc_data_server_design.png">
 
-## Source Code 
+--------------------------------------
+
+## Firmware
+
+### Compilation Tools 
+
+- STM32CubeIDE
+
+### External Code Sources
+
+To compile the whole project you need to generate the TrueSTUDIO project from STM32CubeMX.
+
+After that you can find some new modules inside your project folder: Drivers, TrueSTUDIO. 
+
+You need to add some code in generated files.
+
+**TrueSTUDIO/startup_stm32f100xb.s:**
+- You need to add this line ` ldr sp, =_estack ` before this section:
+
+```
+  movs r1, #0
+  b LoopCopyDataInit
+```
+
+**Src/main.c:**
+- You need to insert this code into `main()` function:
+```c
+  extern void SERV_Init(UART_HandleTypeDef * huart, TIM_HandleTypeDef * htim);
+  extern void SERV_Routine(void);
+  SERV_Init(&huart1, &htim2);
+  while (1)
+  {
+    SERV_Routine();
+  }
+``` 
+
+**Src/tiny_printf.c:**
+- Rightclick on the project -> New -> Other -> Library functions. And and add "Tiny printf implementation".
+
+**Src/stm32f1xx_it.c:**
+- You need to insert this code into `SysTick_Handler()` function:
+```c
+  extern void SERV_TickIncrement(void);
+  SERV_TickIncrement();
+```
+
+### Source Code 
 
 Source code of this project: 
 
 - [https://github.com/tuppi-ovh/data-server-stm32](https://github.com/tuppi-ovh/data-server-stm32)
 
 - [https://github.com/tuppi-ovh/data-server-pi](https://github.com/tuppi-ovh/data-server-pi)
+
+--------------------------------------
 
 ## Conclusion
 
@@ -166,9 +219,12 @@ At the end these plastic boxes were relied together:
 
 <img src="../images/img_doc_data_server_result_2.jpg">
 
+--------------------------------------
+
 ## Interesting Links
 
 - [DHT22 with STM32](https://www.controllerstech.com/temperature-measurement-using-dht22-in-stm32)
 
 - [MySensors API UART](https://www.mysensors.org/download/serial_api_20)
 
+- [LACROSSE TX141TH-BV2 Checksum Hack](https://tuppi.ovh/data_server_stm32/doc_lacrosse)
